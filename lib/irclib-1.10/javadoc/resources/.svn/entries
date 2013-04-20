@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   revision="33"
+   repos="https://schwering@svn.sourceforge.net/svnroot/moepii"
+   url="https://schwering@svn.sourceforge.net/svnroot/moepii/trunk/javadoc/resources"
+   last-author="schwering"
+   uuid="d4727d33-9d1f-0410-bbc7-e2b51181e028"
+   committed-date="2006-10-19T16:08:22.954372Z"
+   kind="dir"
+   name=""
+   committed-rev="23"/>
+<entry
+   checksum="220f4eda0bd49915699315f18b8b03cf"
+   last-author="schwering"
+   prop-time="2006-10-21T22:16:40.000000Z"
+   text-time="2006-10-19T16:08:22.000000Z"
+   committed-date="2006-10-19T16:08:22.954372Z"
+   kind="file"
+   name="inherit.gif"
+   committed-rev="23"/>
+</wc-entries>

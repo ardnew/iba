@@ -25,116 +25,120 @@ public class IRCEventHandler implements IRCEventListener
   @Override
   public String toString()
   {
-    return Util.join(
-      Util.q(this.name())
-    );
+    return 
+      "IRCEventHandler=" +
+      Util.q(
+        Util.join(
+          this.name()
+        )
+      );
   }
 
   @Override
   public void onRegistered()
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onRegistered()");
   }
 
   @Override
   public void onDisconnected()
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onDisconnected()");
   }
 
   @Override
   public void onError(String msg)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onError():" + Util.q("" + msg, " [", "] "));
   }
 
   @Override
   public void onError(int num, String msg)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onError()" + Util.q("" + num, " [", "] ") + Util.q("" + msg, " [", "] "));
   }
 
   @Override
   public void onInvite(String chan, IRCUser user, String passiveNick)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onInvite()" + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + passiveNick, " [", "] "));
   }
 
   @Override
   public void onJoin(String chan, IRCUser user)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onJoin()" + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] "));
   }
 
   @Override
   public void onKick(String chan, IRCUser user, String passiveNick, String msg)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onKick()" + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + passiveNick, " [", "] ") + Util.q("" + msg, " [", "] "));
   }
 
   @Override
   public void onMode(String chan, IRCUser user, IRCModeParser modeParser)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onMode()" + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + modeParser, " [", "] "));
   }
 
   @Override
   public void onMode(IRCUser user, String passiveNick, String mode)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onMode()" + Util.q("" + user, " [", "] ") + Util.q("" + passiveNick, " [", "] ") + Util.q("" + mode, " [", "] "));
   }
 
   @Override
   public void onNick(IRCUser user, String newNick)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onNick()" + Util.q("" + user, " [", "] ") + Util.q("" + newNick, " [", "] "));
   }
 
   @Override
   public void onNotice(String target, IRCUser user, String msg)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onNotice()" + Util.q("" + target, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + msg, " [", "] "));
   }
 
   @Override
   public void onPart(String chan, IRCUser user, String msg)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onPart()" + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + msg, " [", "] "));
   }
 
   @Override
   public void onPing(String ping)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onPing()" + Util.q("" + ping, " [", "] "));
   }
 
   @Override
   public void onPrivmsg(String target, IRCUser user, String msg)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onPrivmsg()" + Util.q("" + target, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + msg, " [", "] "));
   }
 
   @Override
   public void onQuit(IRCUser user, String msg)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onQuit()" + Util.q("" + user, " [", "] ") + Util.q("" + msg, " [", "] "));
   }
 
   @Override
   public void onReply(int num, String value, String msg)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onReply()" + Util.q("" + num, " [", "] ") + Util.q("" + value, " [", "] ") + Util.q("" + msg, " [", "] "));
   }
 
   @Override
   public void onTopic(String chan, IRCUser user, String topic)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("onTopic()" + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + topic, " [", "] "));
   }
 
   @Override
   public void unknown(String prefix, String command, String middle, String trailing)
   {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("unknown()" + Util.q("" + prefix, " [", "] ") + Util.q("" + command, " [", "] ") + Util.q("" + middle, " [", "] ") + Util.q("" + trailing, " [", "] "));
   }
 }

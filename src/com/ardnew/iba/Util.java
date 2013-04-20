@@ -6,8 +6,8 @@ package com.ardnew.iba;
  */
 public class Util
 {
-  public static final Character TOKEN_LEADING_BRACKET = '[';
-  public static final Character TOKEN_TRAILING_BRACKET = ']';
+  public static final String TOKEN_LEADING_BRACKET = "[";
+  public static final String TOKEN_TRAILING_BRACKET = "]";
   
   public static final String TOKEN_DELIMITER = "; ";
   
@@ -25,12 +25,12 @@ public class Util
   
   
   
-  public static String q(String s, Character prec, Character post)
+  public static String q(String s, String prec, String post)
   {
     return prec + s + post;
   }
   
-  public static String q(String s, Character c)
+  public static String q(String s, String c)
   {
     return q(s, c, c);
   }
@@ -40,7 +40,7 @@ public class Util
     return q(s, TOKEN_LEADING_BRACKET, TOKEN_TRAILING_BRACKET);
   }
   
-  public static String join(String c, Object... o)
+  public static String join(Object... o)
   {
     String s = "";
     
@@ -48,14 +48,9 @@ public class Util
     {
       s = o[0].toString();
       
-      for (int i = 1; i < o.length; ++i) { s += c + o[i]; }
+      for (int i = 1; i < o.length; ++i) { s += TOKEN_DELIMITER + o[i]; }
     }
     
     return s;
-  }
-  
-  public static String join(Object... o)
-  { 
-    return join(TOKEN_DELIMITER, o);
   }
 }

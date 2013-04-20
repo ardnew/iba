@@ -58,9 +58,19 @@ public class IRCThread extends IRCConnection
   @Override
   public String toString()
   {
-    return Util.join(
-      Util.q(this.host().toString()), 
-      Util.q(this.user().toString())
-    );
+    return 
+      "IRCThread=" +
+      Util.q(
+        Util.join(
+          this.host().toString(), 
+          this.user().toString(),
+          "IRCHookList=" + 
+          Util.q(
+            Util.join(
+              this.hook().toArray()
+            )
+          )
+        )
+      );
   }
 }

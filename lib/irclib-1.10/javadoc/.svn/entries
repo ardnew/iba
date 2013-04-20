@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://schwering@svn.sourceforge.net/svnroot/moepii"
+   revision="33"
+   url="https://schwering@svn.sourceforge.net/svnroot/moepii/trunk/javadoc"
+   last-author="schwering"
+   uuid="d4727d33-9d1f-0410-bbc7-e2b51181e028"
+   committed-date="2006-10-21T23:48:27.924352Z"
+   name=""
+   kind="dir"
+   committed-rev="31"/>
+<entry
+   revision="35"
+   checksum="d881f945db90bcdf6196fe46977ab8ff"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="allclasses-frame.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="244549d840643eb5b3bdf6a0c74913ba"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="allclasses-noframe.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="41f88b3b6ee054cb4d81cccdc9f1cd50"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="constant-values.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="00a79f5a9ae1918dbc557be5a6fbb0b8"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="deprecated-list.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="4ee661699d9ade48bca88202085248b7"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="help-doc.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   name="index-files"
+   kind="dir"/>
+<entry
+   revision="35"
+   checksum="826820011435aa796345c44d225413a2"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="index.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   name="org"
+   kind="dir"/>
+<entry
+   revision="35"
+   checksum="7b5d54f3c49a887957875080d2a817d0"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="overview-frame.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="edf69a8e49cef5ac552800cbcf25c8ce"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="overview-summary.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="30838235e2802f82a30c24f5991a09a6"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="overview-tree.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   checksum="829f69ae5d177ab77498d0cc2ecd3438"
+   last-author="schwering"
+   text-time="2006-10-21T23:46:46.000000Z"
+   committed-date="2006-10-19T16:07:33.566113Z"
+   name="package-list"
+   kind="file"
+   committed-rev="22"/>
+<entry
+   revision="35"
+   checksum="ce40e08e5b0812df82b3842a2bcff7aa"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="packages.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   name="resources"
+   kind="dir"/>
+<entry
+   revision="35"
+   checksum="e186531aa4cf5654f5b7e50ad7e1a1ca"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="serialized-form.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   checksum="8cc88314fce0cc52e57f9ccb2cb8436e"
+   last-author="schwering"
+   text-time="2006-10-21T23:46:46.000000Z"
+   committed-date="2006-10-16T20:43:49.067538Z"
+   name="stylesheet.css"
+   kind="file"
+   committed-rev="3"/>
+</wc-entries>

@@ -35,10 +35,14 @@ public class IRCPeer
   @Override
   public String toString()
   {
-    return Util.join(
-      Util.q(this.nick()),
-      Util.q(this.user()),
-      Util.q(this.name())
-    );
+    return 
+      "IRCPeer=" +
+      Util.q(
+        Util.join(
+          this.nick(),
+          this.user(),
+          this.name()
+        )
+      );
   }
 }

@@ -42,11 +42,15 @@ public class IRCHost
   @Override
   public String toString()
   {
-    return Util.join(
-      Util.q(this.addr().toString()),
-      Util.q(this.port().toString()),      
-      Util.q(this.host()),
-      Util.q(this.pass())
-    );
+    return 
+      "IRCHost=" +
+      Util.q(
+        Util.join(
+          this.addr().toString(),
+          this.port().toString(),      
+          this.host(),
+          this.pass()
+        )
+      );
   }
 }
