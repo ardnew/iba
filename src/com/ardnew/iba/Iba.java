@@ -6,4 +6,7 @@ package com.ardnew.iba;
  */
 public class Iba
 {
+  public static void main(String[] args)
+  {
+  }
 }
