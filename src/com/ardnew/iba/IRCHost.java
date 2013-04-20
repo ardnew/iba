@@ -6,36 +6,47 @@ package com.ardnew.iba;
  */
 public class IRCHost
 {
-  private Integer addr;
-  private Integer port;
-  private String  host;
-  private String  pass; 
+  private Integer _addr;
+  private Integer _port;
+  private String  _host;
+  private String  _pass; 
   
   public IRCHost(String host, Integer port, String pass)
   {
-    this.addr = Util.hostToAddr(host);
-    this.port = port;
-    this.host = host;
-    this.pass = pass;
+    this._addr = Util.hostToAddr(host);
+    this._port = port;
+    this._host = host;
+    this._pass = pass;
   }
   
   public Integer addr()
   {
-    return this.addr;
+    return this._addr;
   }
   
   public Integer port()
   {
-    return this.port;
+    return this._port;
   }
   
   public String host()
   {
-    return this.host;
+    return this._host;
   }
   
   public String pass()
   {
-    return this.pass;
+    return this._pass;
+  }
+  
+  @Override
+  public String toString()
+  {
+    return Util.join(
+      Util.q(this.addr().toString()),
+      Util.q(this.port().toString()),      
+      Util.q(this.host()),
+      Util.q(this.pass())
+    );
   }
 }

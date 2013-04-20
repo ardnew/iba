@@ -1,5 +1,7 @@
 package com.ardnew.iba;
 
+import java.util.LinkedList;
+
 import org.schwering.irc.lib.IRCConnection;
 
 /**
@@ -10,24 +12,55 @@ public class IRCThread extends IRCConnection
 {
   private enum ConnectionState { csNone, csConnecting, csClosing, csActive };
   
-  private IRCHost host;
-  private IRCUser user;
+  private IRCHost _host;
+  private IRCUser _user;
   
-  public IRCThread(IRCHost host, IRCUser user)
+  private LinkedList<IRCEventHandler> _hook;
+  
+  public IRCThread(IRCHost host, IRCUser user, LinkedList<IRCEventHandler> hook) throws IllegalArgumentException
   {
     super(host.host(), new int[]{ host.port() }, host.pass(), user.nick(), user.user(), user.name());
     
-    this.host = host;
-    this.user = user;
+    try
+    {
+      for (IRCEventHandler e : hook) 
+      { 
+        this.addIRCEventListener(e); 
+      }
+    }
+    catch (NullPointerException e)
+    {
+      hook = new LinkedList<IRCEventHandler>();
+    }
+    finally
+    {
+      this._host = host;
+      this._user = user;
+      this._hook = hook;      
+    }
   }
   
   public IRCHost host()
   {
-    return this.host;
+    return this._host;
   }
   
   public IRCUser user()
   {
-    return this.user;
+    return this._user;
+  }
+  
+  public LinkedList<IRCEventHandler> hook()
+  {
+    return this._hook;
+  }
+  
+  @Override
+  public String toString()
+  {
+    return Util.join(
+      Util.q(this.host().toString()), 
+      Util.q(this.user().toString())
+    );
   }
 }

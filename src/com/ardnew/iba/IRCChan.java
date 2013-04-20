@@ -6,6 +6,6 @@ package com.ardnew.iba;
  */
 public class IRCChan 
 {
-  private String name;
-  private String pass;
+  private String _name;
+  private String _pass;
 }
