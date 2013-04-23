@@ -72,7 +72,7 @@ public class IRCPeer
   public String toString()
   {
     return 
-      "IRCPeer=" +
+      "IRCPeer(" + this.hashCode() + ")=" +
       Util.q(
         Util.join(
           this.nick(),

@@ -20,18 +20,22 @@ public class Util
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// static constants for convenience in utility routines
+// static class fields for convenience in utility routines
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
   public static final String TOKEN_LEADING_BRACKET = "[";
   public static final String TOKEN_TRAILING_BRACKET = "]";
-  
+  public static final String TOKEN_LEADING_BRACKET_ERROR = "[[**";
+  public static final String TOKEN_TRAILING_BRACKET_ERROR = "**]]";
+  public static final String ERROR_LINE_CHARACTER = "*";
   public static final String TOKEN_DELIMITER = "; ";
+  public static final String NEWLINE = System.getProperty("line.separator");  
+  public static final Integer ERROR_LINE_LENGTH = 40;  
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// constants for convenience in utility routines
+// static methods available to all objects
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -58,6 +62,25 @@ public class Util
   public static String q(String s)
   {
     return q(s, TOKEN_LEADING_BRACKET, TOKEN_TRAILING_BRACKET);
+  }
+  
+  public static String qe(String s)
+  {
+    return q(s, TOKEN_LEADING_BRACKET_ERROR, TOKEN_TRAILING_BRACKET_ERROR);
+  }
+  
+  public static String errorLineSpan()
+  {
+    return repeatString(ERROR_LINE_CHARACTER, ERROR_LINE_LENGTH);
+  }
+  
+  public static String repeatString(String c, Integer n)
+  {
+    String t = "";
+    
+    while (n-->0) { t += c; }
+    
+    return t;
   }
   
   public static String join(Object... o)

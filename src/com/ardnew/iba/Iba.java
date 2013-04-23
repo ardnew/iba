@@ -1,7 +1,8 @@
 package com.ardnew.iba;
 
-import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Arrays;
+import java.io.IOException;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -20,6 +21,14 @@ import java.util.LinkedList;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public class Iba
 {
+  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// private static class fields
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  private static LinkedList<IRCThread> _pool;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -29,29 +38,67 @@ public class Iba
   
   public static void main(String[] args)
   { 
-    IRCThread t;
+    LinkedList<IRCThread> pool = new LinkedList<IRCThread>();
     
-    IRCHost host = new IRCHost("irc.binaryshadow.org", 6667, null);    
-    IRCUser user = new IRCUser("nickname", "username", "realname");
+    int i = 3;
     
-    LinkedList<IRCEventHandler> evhl = 
-      new LinkedList<IRCEventHandler>(Arrays.asList(new IRCEventHandler("default handler")));
+    while (i-->0)
+    {
+      try
+      {
+        IRCUser user = new IRCUser("iba" + i, "dickbutt" + i, "ardnew" + i);
+        IRCHost host = new IRCHost("irc.binaryshadow.org", 6667, null, 
+          new LinkedList<IRCChan>(Arrays.asList(
+            new IRCChan("#test", null))
+          )
+        );        
+        
+        pool.add(Iba.createIRCThread(host, user, false));
+        pool.remove().connect();;
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+      finally
+      {
+        // wtf
+      }
+    }
+  }
+  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// private methods
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+    
+  private static IRCThread createIRCThread(IRCHost host, IRCUser user, boolean daemon) throws IOException
+  {
+    IRCThread conn;    
     
     // instantiate the connection thread (but do NOT dispatch)
-    t = new IRCThread(host, user, evhl);
+    conn = new IRCThread(host, user);
+    
+    // if true, the JVM will exit without waiting on us
+    conn.setDaemon(daemon); 
     
     // perform any pre-connect configurations
-    t.setColors(false);
-    t.setPong(true);
+    conn.setColors(false);
+    conn.setPong(true);
     
     // establish the connection and let the event handlers take control from here
-    try
-    {
-      t.connect();
-    }
-    catch (Exception e)
-    {
-      e.printStackTrace();
-    }
+    return conn;
+  }
+  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// public access to the thread pool (plz don't abuse)
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+  
+  public static LinkedList<IRCThread> pool()
+  {
+    return Iba._pool;
   }
 }

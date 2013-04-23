@@ -1,5 +1,7 @@
 package com.ardnew.iba;
 
+import java.util.LinkedList;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // file:
@@ -26,8 +28,9 @@ public class IRCHost
 
   private Integer _addr;
   private Integer _port;
-  private String  _host;
-  private String  _pass; 
+  private String _host;
+  private String _pass; 
+  private LinkedList<IRCChan> _chan;
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -35,12 +38,13 @@ public class IRCHost
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  public IRCHost(String host, Integer port, String pass)
+  public IRCHost(String host, Integer port, String pass, LinkedList<IRCChan> chan)
   {
     this._addr = Util.hostToAddr(host);
     this._port = port;
     this._host = host;
     this._pass = pass;
+    this._chan = chan;
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,6 +73,11 @@ public class IRCHost
     return this._pass;
   }
   
+  public LinkedList<IRCChan> chan()
+  {
+    return this._chan;
+  }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // overridden methods declared in super class
@@ -79,13 +88,17 @@ public class IRCHost
   public String toString()
   {
     return 
-      "IRCHost=" +
+      "IRCHost(" + this.hashCode() + ")=" +
       Util.q(
         Util.join(
           this.addr().toString(),
           this.port().toString(),      
           this.host(),
-          this.pass()
+          this.pass(),
+          "IRCChanList(" + this.chan().hashCode() + ")=" +
+          Util.q(
+            Util.join(this.chan().toArray())
+          )
         )
       );
   }

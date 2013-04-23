@@ -65,7 +65,7 @@ public class IRCChan
   public String toString()
   {
     return 
-      "IRCChan=" +
+      "IRCChan(" + this.hashCode() + ")=" +
       Util.q(
         Util.join(
           this.name(),

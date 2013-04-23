@@ -1,13 +1,20 @@
-package com.ardnew.iba;
+package com.ardnew.iba.plugin;
 
-import org.schwering.irc.lib.IRCEventListener;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+
+import com.ardnew.iba.IRCEventHandler;
+import com.ardnew.iba.IRCThread;
+import com.ardnew.iba.Util;
+
 import org.schwering.irc.lib.IRCModeParser;
 import org.schwering.irc.lib.IRCUser;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // file:
-//   IRCEventHandler.java
+//   Log.java
 //
 // description:
 //   TODO
@@ -19,204 +26,179 @@ import org.schwering.irc.lib.IRCUser;
 //   April 20, 2013
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-abstract public class IRCEventHandler implements IRCEventListener
+public final class Log extends IRCEventHandler
 {
-
+  
+  private static final String NAME = "LOG";
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // private instance members
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  private IRCThread _conn;
-  protected String _name;
-
+  
+  private PrintWriter log;
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // constructors 
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  public IRCEventHandler(IRCThread conn, String name)
+  
+  public Log(IRCThread conn)
   {
-    this._conn = conn;
-    this._name = name;
+    super(conn, Log.NAME);
+    
+    String fn = super.conn().user().nick() + ".log";
+    
+    try
+    {
+      this.log = new PrintWriter(new BufferedWriter(new FileWriter(fn, true)));
+    }
+    catch (Exception e)
+    {
+      errorMessage("error opening log file \"" + fn + "\" for append: " + e.getMessage());
+    }
   }
-
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // accessor/mutator methods for private instance members
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
-  public IRCThread conn()
+
+  public PrintWriter log()
   {
-    return this._conn;
-  }
-    
-  public String name()
-  {
-    return this._name;
+    return this.log;
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// protected methods
+// public methods
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
   
-  protected void outputMessage(String message)
+  public void append(String message)
   {
-    System.out.println(Util.q(this.name() + ":" + this.conn().user().nick()) + message);
+    this.log().append(Util.q(this.name() + ":" + this.conn().user().nick()) + message);
+    this.log().flush();
   }
   
-  protected void outputMessage(String[] message)
+  public void append(String[] message)
   {
-    for (String s : message) { outputMessage(s); }
+    for (String s : message) { append(s); }
   }
   
-  protected void errorMessage(String message)
-  {
-    System.err.println(Util.errorLineSpan());
-    System.err.println(Util.qe(this.name() + ":" + this.conn().user().nick()) + message);
-    System.err.println(Util.errorLineSpan());
-  }
-  
-  protected void errorMessage(String[] message)
-  {
-    for (String s : message) { errorMessage(s); }
-  }  
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // overridden methods declared in super class
 //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  @Override
-  public String toString()
-  {
-    return 
-      "IRCEventHandler(" + this.hashCode() + ")=" +
-      Util.q(
-        Util.join(
-          this.name(),
-          this.conn().hashCode()
-        )
-      );
-  }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// overridden methods implementing interfaces
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+  
   @Override
   public void onRegistered()
   {
-    /* NOP */ ;
+    append("onRegistered: " + '\n');
   }
 
   @Override
   public void onDisconnected()
   {
-    /* NOP */ ;
+    append("onDisconnected: " + '\n');
   }
 
   @Override
   public void onError(String msg)
   {
-    /* NOP */ ;
+    append("onError: " + Util.q("" + msg, " [", "] ") + '\n');
   }
 
   @Override
   public void onError(int num, String msg)
   {
-    /* NOP */ ;
+    append("onError: " + Util.q("" + num, " [", "] ") + Util.q("" + msg, " [", "] ") + '\n');
   }
 
   @Override
   public void onInvite(String chan, IRCUser user, String passiveNick)
   {
-    /* NOP */ ;
+    append("onInvite: " + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + passiveNick, " [", "] ") + '\n');
   }
 
   @Override
   public void onJoin(String chan, IRCUser user)
   {
-    /* NOP */ ;
+    append("onJoin: " + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + '\n');
   }
 
   @Override
   public void onKick(String chan, IRCUser user, String passiveNick, String msg)
   {
-    /* NOP */ ;
+    append("onKick: " + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + passiveNick, " [", "] ") + Util.q("" + msg, " [", "] ") + '\n');
   }
 
   @Override
   public void onMode(String chan, IRCUser user, IRCModeParser modeParser)
   {
-    /* NOP */ ;
+    append("onMode: " + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + modeParser, " [", "] ") + '\n');
   }
 
   @Override
   public void onMode(IRCUser user, String passiveNick, String mode)
   {
-    /* NOP */ ;
+    append("onMode: " + Util.q("" + user, " [", "] ") + Util.q("" + passiveNick, " [", "] ") + Util.q("" + mode, " [", "] ") + '\n');
   }
 
   @Override
   public void onNick(IRCUser user, String newNick)
   {
-    /* NOP */ ;
+    append("onNick: " + Util.q("" + user, " [", "] ") + Util.q("" + newNick, " [", "] ") + '\n');
   }
 
   @Override
   public void onNotice(String target, IRCUser user, String msg)
   {
-    /* NOP */ ;
+    append("onNotice: " + Util.q("" + target, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + msg, " [", "] ") + '\n');
   }
 
   @Override
   public void onPart(String chan, IRCUser user, String msg)
   {
-    /* NOP */ ;
+    append("onPart: " + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + msg, " [", "] ") + '\n');
   }
 
   @Override
   public void onPing(String ping)
   {
-    /* NOP */ ;
+    append("onPing: " + Util.q("" + ping, " [", "] ") + '\n');
   }
 
-  @Override
   public void onPrivmsg(String target, IRCUser user, String msg)
   {
-    /* NOP */ ;
+    append("onPrivmsg: " + Util.q("" + target, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + msg, " [", "] ") + '\n');
   }
 
   @Override
   public void onQuit(IRCUser user, String msg)
   {
-    /* NOP */ ;
+    append("onQuit: " + Util.q("" + user, " [", "] ") + Util.q("" + msg, " [", "] ") + '\n');
   }
 
   @Override
   public void onReply(int num, String value, String msg)
   {
-    /* NOP */ ;
-  } 
+    append("onReply: " + Util.q("" + num, " [", "] ") + Util.q("" + value, " [", "] ") + Util.q("" + msg, " [", "] ") + '\n');
+  }
 
   @Override
   public void onTopic(String chan, IRCUser user, String topic)
   {
-    /* NOP */ ;
+    append("onTopic: " + Util.q("" + chan, " [", "] ") + Util.q("" + user, " [", "] ") + Util.q("" + topic, " [", "] ") + '\n');
   }
 
   @Override
   public void unknown(String prefix, String command, String middle, String trailing)
   {
-    /* NOP */ ;
+    append("unknown: " + Util.q("" + prefix, " [", "] ") + Util.q("" + command, " [", "] ") + Util.q("" + middle, " [", "] ") + Util.q("" + trailing, " [", "] ") + '\n');
   }
 }

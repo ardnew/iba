@@ -1,6 +1,8 @@
 package com.ardnew.iba;
 
-import java.util.LinkedList;
+import com.ardnew.iba.plugin.Control;
+import com.ardnew.iba.plugin.Echo;
+import com.ardnew.iba.plugin.Log;
 
 import org.schwering.irc.lib.IRCConnection;
 
@@ -21,14 +23,6 @@ import org.schwering.irc.lib.IRCConnection;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public class IRCThread extends IRCConnection
 {
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// local type definitions
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  private enum ConnectionState { csNone, csConnecting, csClosing, csActive };
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -39,34 +33,28 @@ public class IRCThread extends IRCConnection
   private IRCHost _host;
   private IRCUser _user;
   
-  private LinkedList<IRCEventHandler> _hook;
-  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // constructors 
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  public IRCThread(IRCHost host, IRCUser user, LinkedList<IRCEventHandler> hook) throws IllegalArgumentException
+  public IRCThread(IRCHost host, IRCUser user) throws IllegalArgumentException
   {
     super(host.host(), new int[]{ host.port() }, host.pass(), user.nick(), user.user(), user.name());
     
+    this._host = host;
+    this._user = user;
+    
     try
     {
-      for (IRCEventHandler e : hook) 
-      { 
-        this.addIRCEventListener(e); 
-      }
+      this.addIRCEventListener(new Control(this));
+      this.addIRCEventListener(new Log(this));
+      this.addIRCEventListener(new Echo(this));
     }
-    catch (NullPointerException e)
+    catch (IllegalArgumentException e)
     {
-      hook = new LinkedList<IRCEventHandler>();
-    }
-    finally
-    {
-      this._host = host;
-      this._user = user;
-      this._hook = hook;      
+      
     }
   }
   
@@ -86,11 +74,6 @@ public class IRCThread extends IRCConnection
     return this._user;
   }
   
-  public LinkedList<IRCEventHandler> hook()
-  {
-    return this._hook;
-  }
-  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // overridden methods declared in super class
@@ -101,17 +84,11 @@ public class IRCThread extends IRCConnection
   public String toString()
   {
     return 
-      "IRCThread=" +
+      "IRCThread(" + this.hashCode() + ")=" +
       Util.q(
         Util.join(
           this.host().toString(), 
-          this.user().toString(),
-          "IRCHookList=" + 
-          Util.q(
-            Util.join(
-              this.hook().toArray()
-            )
-          )
+          this.user().toString()
         )
       );
   }
