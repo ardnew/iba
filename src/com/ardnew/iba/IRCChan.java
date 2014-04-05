@@ -15,7 +15,7 @@ package com.ardnew.iba;
 //   April 20, 2013
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public class IRCChan 
+public class IRCChan implements IbaConstant
 {
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,9 +67,9 @@ public class IRCChan
     return 
       "IRCChan(" + this.hashCode() + ")=" +
       Util.q(
-        Util.join(
-          this.name(),
-          this.pass()
+        Util.pjoin(
+          Util.q("channame=" + this.name()),
+          Util.q("password=" + this.pass())
         )
       );    
   }

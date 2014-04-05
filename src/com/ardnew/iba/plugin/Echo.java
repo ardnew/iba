@@ -2,9 +2,7 @@ package com.ardnew.iba.plugin;
 
 import com.ardnew.iba.IRCEventHandler;
 import com.ardnew.iba.IRCThread;
-import com.ardnew.iba.Util;
 
-import org.schwering.irc.lib.IRCModeParser;
 import org.schwering.irc.lib.IRCUser;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,6 +22,12 @@ import org.schwering.irc.lib.IRCUser;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public final class Echo extends IRCEventHandler
 {
+     
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// private static class fields
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
   
   private static final String NAME = "ECHO";
   
@@ -33,9 +37,9 @@ public final class Echo extends IRCEventHandler
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
-  public Echo(IRCThread conn)
+  public Echo(IRCThread conn, boolean actv)
   {
-    super(conn, Echo.NAME);
+    super(conn, Echo.NAME, actv);
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,9 +51,11 @@ public final class Echo extends IRCEventHandler
   @Override
   public void onPrivmsg(String target, IRCUser user, String msg)
   {
-    outputMessage("PRIVMSG " + 
-      Util.q(target) + ' ' + 
-      Util.q(user.getNick()) + ' ' + 
-      Util.q(msg));
+    /*
+    if (this.actv())
+    {
+      this.printOutputUserMessage(Util.q("PRIVMSG") + Util.q(target) + Util.q(user.getNick()) + Util.q(msg));  
+    }
+    */
   }  
 }

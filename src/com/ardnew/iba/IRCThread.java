@@ -1,5 +1,7 @@
 package com.ardnew.iba;
 
+import java.io.IOException;
+
 import com.ardnew.iba.plugin.Control;
 import com.ardnew.iba.plugin.Echo;
 import com.ardnew.iba.plugin.Log;
@@ -21,7 +23,7 @@ import org.schwering.irc.lib.IRCConnection;
 //   April 20, 2013
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public class IRCThread extends IRCConnection
+public class IRCThread extends IRCConnection 
 {
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,11 +50,15 @@ public class IRCThread extends IRCConnection
     
     try
     {
-      this.addIRCEventListener(new Control(this));
-      this.addIRCEventListener(new Log(this));
-      this.addIRCEventListener(new Echo(this));
+      this.addIRCEventListener(new Control(this, true));
+      this.addIRCEventListener(new Log(this, true));
+      this.addIRCEventListener(new Echo(this, true));
     }
     catch (IllegalArgumentException e)
+    {
+      
+    }
+    finally
     {
       
     }
@@ -79,16 +85,27 @@ public class IRCThread extends IRCConnection
 // overridden methods declared in super class
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+  
+  @Override
+	public void connect() throws IOException 
+  {
+    // do any local processing here before we dispatch
+    this.setName(this.toString());
+    
+    super.connect();
+	}  
+  
   @Override
   public String toString()
   {
     return 
       "IRCThread(" + this.hashCode() + ")=" +
       Util.q(
-        Util.join(
-          this.host().toString(), 
-          this.user().toString()
+        Util.pjoin(
+          Util.q("alive=" + this.isAlive()),
+          Util.q("connected=" + this.isConnected()),
+          Util.q("host=" + this.host().toString()), 
+          Util.q("user=" + this.user().toString())
         )
       );
   }

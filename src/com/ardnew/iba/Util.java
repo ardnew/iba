@@ -1,5 +1,12 @@
 package com.ardnew.iba;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.schwering.irc.lib.IRCUtil;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // file:
@@ -15,23 +22,16 @@ package com.ardnew.iba;
 //   April 20, 2013
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public class Util
+public class Util implements IbaConstant
 {
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// static class fields for convenience in utility routines
+// private static class fields
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
-  public static final String TOKEN_LEADING_BRACKET = "[";
-  public static final String TOKEN_TRAILING_BRACKET = "]";
-  public static final String TOKEN_LEADING_BRACKET_ERROR = "[[**";
-  public static final String TOKEN_TRAILING_BRACKET_ERROR = "**]]";
-  public static final String ERROR_LINE_CHARACTER = "*";
-  public static final String TOKEN_DELIMITER = "; ";
-  public static final String NEWLINE = System.getProperty("line.separator");  
-  public static final Integer ERROR_LINE_LENGTH = 40;  
+  private static SimpleDateFormat _logDateFormat = new SimpleDateFormat(DEFAULT_DATETIME_FORMAT);
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -39,19 +39,24 @@ public class Util
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  public static String addrToIP(Integer addr)
+  public static String addrToIP(Integer n)
   {
     return null;
   }
   
-  public static Integer hostToAddr(String host)
+  public static Integer hostToAddr(String s)
   {
     return 0;
   }
   
-  public static String q(String s, String prec, String post)
+  public static boolean validChannel(String s)
   {
-    return prec + s + post;
+    return IRCUtil.isChan(s);
+  }
+  
+  public static String q(String s, String p, String q)
+  {
+    return p + s + q;
   }
   
   public static String q(String s, String c)
@@ -83,7 +88,12 @@ public class Util
     return t;
   }
   
-  public static String join(Object... o)
+  public static String lineBreak(Integer n)
+  {
+    return repeatString(CONSOLE_NEWLINE, n);
+  }
+  
+  public static String joinWithString(String c, Object... o)
   {
     String s = "";
     
@@ -91,9 +101,44 @@ public class Util
     {
       s = o[0].toString();
       
-      for (int i = 1; i < o.length; ++i) { s += TOKEN_DELIMITER + o[i]; }
+      for (int i = 1; i < o.length; ++i) { s += c + o[i]; }
     }
     
     return s;
+  }
+  
+  public static String pjoin(Object... o)
+  {
+    return joinWithString(TOKEN_DELIMITER + ' ', o);
+  }
+  
+  public static String join(Object... o)
+  {
+    return joinWithString(TOKEN_DELIMITER, o);
+  }
+  
+  public static String[] splitWhitespace(String s)
+  {
+    return s.split("\\s+");
+  }
+  
+  public static File createFile(String s, boolean o /* overwrite? */) throws IOException
+  {
+    File f = new File(s);
+    
+    if (o && f.exists()) { f.delete(); }
+    
+    if (!f.exists()) 
+    { 
+      (new File(f.getParent())).mkdirs(); 
+      f.createNewFile(); 
+    }
+    
+    return f;
+  }
+  
+  public static String currentDateLogFormat()
+  {
+    return _logDateFormat.format(new Date());
   }
 }

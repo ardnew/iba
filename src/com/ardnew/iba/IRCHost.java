@@ -90,14 +90,13 @@ public class IRCHost
     return 
       "IRCHost(" + this.hashCode() + ")=" +
       Util.q(
-        Util.join(
-          this.addr().toString(),
-          this.port().toString(),      
-          this.host(),
-          this.pass(),
-          "IRCChanList(" + this.chan().hashCode() + ")=" +
-          Util.q(
-            Util.join(this.chan().toArray())
+        Util.pjoin(
+          Util.q("address="  + this.addr().toString()),
+          Util.q("hostport=" + this.port().toString()),      
+          Util.q("hostname=" + this.host()),
+          Util.q("password=" + this.pass()),
+          Util.q("IRCChanList(" + this.chan().hashCode() + ")=" +
+            Util.q(Util.pjoin(this.chan().toArray()))
           )
         )
       );

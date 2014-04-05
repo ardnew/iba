@@ -41,10 +41,10 @@ public class IRCUser extends IRCPeer
     return 
       "IRCUser(" + this.hashCode() + ")=" +
       Util.q(
-        Util.join(
-          this.nick(),
-          this.user(),
-          this.name()
+        Util.pjoin(
+          Util.q("nickname=" + this.nick()),
+          Util.q("username=" + this.user()),
+          Util.q("realname=" + this.name())
         )
       );
   }  

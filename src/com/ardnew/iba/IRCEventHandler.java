@@ -19,7 +19,7 @@ import org.schwering.irc.lib.IRCUser;
 //   April 20, 2013
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-abstract public class IRCEventHandler implements IRCEventListener
+abstract public class IRCEventHandler implements IbaConstant, IRCEventListener
 {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,7 +29,15 @@ abstract public class IRCEventHandler implements IRCEventListener
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   private IRCThread _conn;
+  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// protected instance members
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
   protected String _name;
+  protected boolean _actv;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -37,10 +45,11 @@ abstract public class IRCEventHandler implements IRCEventListener
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  public IRCEventHandler(IRCThread conn, String name)
+  public IRCEventHandler(IRCThread conn, String name, boolean actv)
   {
     this._conn = conn;
     this._name = name;
+    this._actv = actv;
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,32 +68,49 @@ abstract public class IRCEventHandler implements IRCEventListener
     return this._name;
   }
   
+  public boolean actv()
+  {
+    return this._actv;
+  }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // protected methods
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
   
-  protected void outputMessage(String message)
+  protected String outputUserMessage(String message)
   {
-    System.out.println(Util.q(this.name() + ":" + this.conn().user().nick()) + message);
+    return Util.q(Util.currentDateLogFormat()) + Util.q(this.name() + ":" + this.conn().user().nick()) + message;
   }
   
-  protected void outputMessage(String[] message)
+  protected void printOutputUserMessage(String message)
   {
-    for (String s : message) { outputMessage(s); }
+    System.out.println(this.outputUserMessage(message));
   }
   
-  protected void errorMessage(String message)
+  protected void printOutputUserMessage(String[] message)
   {
-    System.err.println(Util.errorLineSpan());
-    System.err.println(Util.qe(this.name() + ":" + this.conn().user().nick()) + message);
-    System.err.println(Util.errorLineSpan());
+    for (String s : message) { this.printOutputUserMessage(s); }
   }
   
-  protected void errorMessage(String[] message)
+  protected String errorUserMessage(String message)
   {
-    for (String s : message) { errorMessage(s); }
+    return Util.errorLineSpan() + 
+             CONSOLE_NEWLINE +
+           Util.qe(Util.currentDateLogFormat()) + Util.qe(this.name() + ":" + this.conn().user().nick()) + message + 
+             CONSOLE_NEWLINE +
+           Util.errorLineSpan();
+  }
+  
+  protected void printErrorUserMessage(String message)
+  {
+    System.err.println(this.errorUserMessage(message));
+  }
+  
+  protected void printErrorUserMessage(String[] message)
+  {
+    for (String s : message) { this.printErrorUserMessage(s); }
   }  
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,9 +125,9 @@ abstract public class IRCEventHandler implements IRCEventListener
     return 
       "IRCEventHandler(" + this.hashCode() + ")=" +
       Util.q(
-        Util.join(
-          this.name(),
-          this.conn().hashCode()
+        Util.pjoin(
+          Util.q("pluginname=" + this.name()),
+          Util.q("connection=" + this.conn().hashCode())
         )
       );
   }

@@ -28,7 +28,7 @@ public class Iba
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
-  private static LinkedList<IRCThread> _pool;
+  private static LinkedList<IRCThread> _pool = new LinkedList<IRCThread>();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -38,31 +38,37 @@ public class Iba
   
   public static void main(String[] args)
   { 
-    LinkedList<IRCThread> pool = new LinkedList<IRCThread>();
+    IRCThread thread;
     
-    int i = 3;
-    
-    while (i-->0)
+    for (int i = 1; i <= 2; ++i)
     {
       try
-      {
+      { 
         IRCUser user = new IRCUser("iba" + i, "dickbutt" + i, "ardnew" + i);
         IRCHost host = new IRCHost("irc.binaryshadow.org", 6667, null, 
-          new LinkedList<IRCChan>(Arrays.asList(
-            new IRCChan("#test", null))
+          new LinkedList<IRCChan>(
+            Arrays.asList(
+              new IRCChan("#test1", null),
+              new IRCChan("#test2", null)
+            )
           )
         );        
         
-        pool.add(Iba.createIRCThread(host, user, false));
-        pool.remove().connect();;
+        thread = Iba.createIRCThread(host, user, false);
+        
+        // establish the connection and let the event handlers take control from here
+        thread.connect();
+        
+        // keep a witness of the thread
+        Iba._pool.add(thread);
       }
       catch (Exception e)
       {
-        e.printStackTrace();
+        
       }
       finally
       {
-        // wtf
+        
       }
     }
   }
@@ -75,10 +81,8 @@ public class Iba
     
   private static IRCThread createIRCThread(IRCHost host, IRCUser user, boolean daemon) throws IOException
   {
-    IRCThread conn;    
-    
     // instantiate the connection thread (but do NOT dispatch)
-    conn = new IRCThread(host, user);
+    IRCThread conn = new IRCThread(host, user);
     
     // if true, the JVM will exit without waiting on us
     conn.setDaemon(daemon); 
@@ -86,8 +90,7 @@ public class Iba
     // perform any pre-connect configurations
     conn.setColors(false);
     conn.setPong(true);
-    
-    // establish the connection and let the event handlers take control from here
+        
     return conn;
   }
   
