@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://schwering@svn.sourceforge.net/svnroot/moepii"
+   revision="33"
+   url="https://schwering@svn.sourceforge.net/svnroot/moepii/trunk/src/org/schwering"
+   last-author="schwering"
+   uuid="d4727d33-9d1f-0410-bbc7-e2b51181e028"
+   committed-date="2006-10-23T09:42:16.898650Z"
+   kind="dir"
+   name=""
+   committed-rev="33"/>
+<entry
+   kind="dir"
+   name="irc"/>
+</wc-entries>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://schwering@svn.sourceforge.net/svnroot/moepii"
+   revision="33"
+   url="https://schwering@svn.sourceforge.net/svnroot/moepii/trunk/javadoc/org/schwering/irc/lib/class-use"
+   last-author="schwering"
+   uuid="d4727d33-9d1f-0410-bbc7-e2b51181e028"
+   committed-date="2006-10-21T23:48:27.924352Z"
+   name=""
+   kind="dir"
+   committed-rev="31"/>
+<entry
+   revision="35"
+   checksum="f099e1754efcca2faaad9506e339e9ca"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCConnection.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="c2031296e9238f4b349a491375ed209a"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCConstants.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="01ba8af91aea22c047615f86c127ff6a"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCEventAdapter.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="031620ba7e96ba60b7d44444dbef5ebe"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCEventListener.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="c3457d424e0fff19c49a3996fda33d41"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCModeParser.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="081cce5c2502e8b1620782fbb873e676"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCParser.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="b2ce87c27a0e0dace3c6a66240f6dba2"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCUser.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="2f8e8b5d930d7d040443d2df4ef6e036"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCUtil.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="37f96b91fee160372eafc426b670bd10"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="SSLDefaultTrustManager.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="32c75361e1a98d70f5b5d5b2b44162e1"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="SSLIRCConnection.html"
+   kind="file"
+   committed-rev="35"/>
+</wc-entries>

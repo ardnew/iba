@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://schwering@svn.sourceforge.net/svnroot/moepii"
+   revision="33"
+   url="https://schwering@svn.sourceforge.net/svnroot/moepii/trunk/javadoc/org/schwering/irc/lib/ssl"
+   last-author="schwering"
+   uuid="d4727d33-9d1f-0410-bbc7-e2b51181e028"
+   committed-date="2006-10-21T23:48:27.924352Z"
+   kind="dir"
+   name=""
+   committed-rev="31"/>
+<entry
+   revision="35"
+   checksum="77d25e24d270a32a15c2eb43bfcef5c2"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="SSLDefaultTrustManager.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="081708dc77fec2e909efeecb95ce3b00"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="SSLIRCConnection.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="3684b979934f1cb88f35ae7f6abb6454"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="SSLNotSupportedException.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="47a35e921ae4b95d98e7df403bd5c4cd"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="SSLTrustManager.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   kind="dir"
+   name="class-use"/>
+<entry
+   revision="35"
+   checksum="9f542ed38caaf598ba0857db1ec0af54"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="package-frame.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="1a64ac3169ce5cdef853b5c8e5a1ede4"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="package-summary.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="4b5e168dc27e8257d5eadbc51cb56437"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="package-tree.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="6596b48552c106fe8fe19c577ddc234d"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="package-use.html"
+   kind="file"
+   committed-rev="35"/>
+</wc-entries>

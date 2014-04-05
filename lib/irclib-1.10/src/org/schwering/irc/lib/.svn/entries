@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://schwering@svn.sourceforge.net/svnroot/moepii"
+   revision="33"
+   url="https://schwering@svn.sourceforge.net/svnroot/moepii/trunk/src/org/schwering/irc/lib"
+   last-author="schwering"
+   uuid="d4727d33-9d1f-0410-bbc7-e2b51181e028"
+   committed-date="2006-10-23T09:42:16.898650Z"
+   name=""
+   kind="dir"
+   committed-rev="33"/>
+<entry
+   checksum="290a654e7f2fee39966827f2f538b89d"
+   last-author="schwering"
+   text-time="2006-10-23T09:42:16.000000Z"
+   committed-date="2006-10-23T09:42:16.898650Z"
+   name="IRCConnection.java"
+   kind="file"
+   committed-rev="33"/>
+<entry
+   checksum="8b607a3aa591c1382d8eea4f24b5617a"
+   last-author="schwering"
+   text-time="2006-10-21T12:47:10.000000Z"
+   committed-date="2006-10-21T12:56:10.858000Z"
+   name="IRCConstants.java"
+   kind="file"
+   committed-rev="25"/>
+<entry
+   checksum="95a6e67380e3241063a55790edad54e2"
+   last-author="schwering"
+   text-time="2006-10-19T16:23:12.000000Z"
+   committed-date="2006-10-19T16:23:12.301284Z"
+   kind="file"
+   name="IRCEventAdapter.java"
+   committed-rev="24"/>
+<entry
+   checksum="f1c64ff03c2e634b1cfa8fa83ef2f86f"
+   last-author="schwering"
+   text-time="2006-10-19T16:23:12.000000Z"
+   committed-date="2006-10-19T16:23:12.301284Z"
+   kind="file"
+   name="IRCEventListener.java"
+   committed-rev="24"/>
+<entry
+   checksum="36c5f9cb52ddb3afef551ab8b192b12d"
+   last-author="schwering"
+   text-time="2006-10-19T16:23:12.000000Z"
+   committed-date="2006-10-19T16:23:12.301284Z"
+   kind="file"
+   name="IRCModeParser.java"
+   committed-rev="24"/>
+<entry
+   checksum="62cb2169bbb78bda1ac84eec7473278a"
+   last-author="schwering"
+   text-time="2006-10-19T16:23:12.000000Z"
+   committed-date="2006-10-19T16:23:12.301284Z"
+   kind="file"
+   name="IRCParser.java"
+   committed-rev="24"/>
+<entry
+   checksum="191ce200af45c99852bc7d0ed0048391"
+   last-author="schwering"
+   text-time="2006-10-19T16:23:12.000000Z"
+   committed-date="2006-10-19T16:23:12.301284Z"
+   kind="file"
+   name="IRCUser.java"
+   committed-rev="24"/>
+<entry
+   checksum="b0bcd5cff19e0df1b4a90a60c873b337"
+   last-author="schwering"
+   text-time="2006-10-19T16:23:12.000000Z"
+   committed-date="2006-10-19T16:23:12.301284Z"
+   kind="file"
+   name="IRCUtil.java"
+   committed-rev="24"/>
+<entry
+   checksum="fff9b043c8abb45c9af13271697be73c"
+   last-author="schwering"
+   text-time="2006-10-21T12:47:49.000000Z"
+   committed-date="2006-10-21T12:56:10.858000Z"
+   kind="file"
+   name="SSLDefaultTrustManager.java"
+   committed-rev="25"/>
+<entry
+   checksum="e06f975207977b07cc993e621e7e9ac2"
+   last-author="schwering"
+   text-time="2006-10-21T12:47:40.000000Z"
+   committed-date="2006-10-21T12:56:10.858000Z"
+   kind="file"
+   name="SSLIRCConnection.java"
+   committed-rev="25"/>
+<entry
+   checksum="f15bfa23dab406444f4afad51908e119"
+   last-author="schwering"
+   text-time="2006-10-21T18:55:59.000000Z"
+   committed-date="2006-10-21T19:00:52.371000Z"
+   name="package.html"
+   kind="file"
+   committed-rev="27"/>
+<entry
+   kind="dir"
+   name="ssl"/>
+</wc-entries>

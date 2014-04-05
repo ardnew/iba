@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/plugin/Log.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/plugin/Control.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/plugin/Echo.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/Iba.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/IRCThread.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/Util.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/IRCEventHandler.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/IbaConstant.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/IRCChan.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/IRCUser.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/IRCPeer.java</file>
+        <file>file:/Users/andrew/NetBeansProjects/iba/src/com/ardnew/iba/IRCHost.java</file>
+    </open-files>
+</project-private>

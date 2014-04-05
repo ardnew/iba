@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://schwering@svn.sourceforge.net/svnroot/moepii"
+   revision="33"
+   url="https://schwering@svn.sourceforge.net/svnroot/moepii/trunk/javadoc/org/schwering/irc/lib"
+   last-author="schwering"
+   uuid="d4727d33-9d1f-0410-bbc7-e2b51181e028"
+   committed-date="2006-10-21T23:48:27.924352Z"
+   name=""
+   kind="dir"
+   committed-rev="31"/>
+<entry
+   revision="35"
+   checksum="375fa4672a81765b1957da4660d7fc85"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCConnection.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="9cb57bf6244eacb05566e8896df6a945"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCConstants.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="6bdbea53a0d2bd0140d189612a98064a"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCEventAdapter.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="ebf61654a04e26be5399d4fbec86f1a4"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCEventListener.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="daeed36c4d248c5c0a6e8b2bd291ecab"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCModeParser.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="9d9590ff351720e6d0e845f0f80ad112"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCParser.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="56bb794a83b418987a3e261b5aba7100"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCUser.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="e364f1212103521c1111fe8a9bbc203d"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="IRCUtil.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="c08039d1d81a7ce01bebdec730382c01"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="SSLDefaultTrustManager.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="8f234ba224255c10187a666f5df164e0"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="SSLIRCConnection.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   name="class-use"
+   kind="dir"/>
+<entry
+   revision="35"
+   checksum="8f2574cb99695aa6a0c8588b9a637d55"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="package-frame.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="d63d66f5d346c8f274c2b750f5af8127"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="package-summary.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="8cf56c48da2b6759dfbc0fd390d57c76"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:07.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="package-tree.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   revision="35"
+   checksum="601fefadb7cbd988500d97b5d45ed650"
+   last-author="schwering"
+   text-time="2006-11-02T19:21:06.000000Z"
+   committed-date="2006-11-02T18:21:04.297000Z"
+   name="package-use.html"
+   kind="file"
+   committed-rev="35"/>
+<entry
+   kind="dir"
+   name="ssl"/>
+</wc-entries>
